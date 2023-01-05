@@ -384,7 +384,7 @@ float OpenTherm::getReturnTemperature() {
 
 bool OpenTherm::setDHWSetpoint(float temperature) {
     unsigned int data = temperatureToData(temperature);
-    unsigned long response = sendRequest(buildRequest(OpenThermMessageType::WRITE_DATA, OpenThermMessageID::TdhwSet, data));
+    unsigned long response = sendRequest(buildRequest(OpenThermMessageType::WRITE_DATA, OpenThermMessageID::TdhwSet | OpenThermMessageID::TsetCH2, data));
     return isValidResponse(response);
 }
     
